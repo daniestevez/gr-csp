@@ -32,7 +32,7 @@ GR_PYTHON_INSTALL(
     FILES
     __init__.py
     csp_header.py
-    DESTINATION ${GR_PYTHON_DIR}/csp
+    print_header.py DESTINATION ${GR_PYTHON_DIR}/csp
 )
 
 ########################################################################
