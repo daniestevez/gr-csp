@@ -46,12 +46,12 @@ class CSP(object):
 
     def __str__(self):
         return ("""CSP header:
-        Priority:\t\t\t{}
+        Priority:\t\t{}
         Source:\t\t\t{}
         Destination:\t\t{}
         Destination port:\t{}
         Source port:\t\t{}
-        Reserved field:\t{}
+        Reserved field:\t\t{}
         HMAC:\t\t\t{}
         XTEA:\t\t\t{}
         RDP:\t\t\t{}
