@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<block>
+  <name>Check CRC</name>
+  <key>csp_check_crc</key>
+  <category>csp</category>
+  <import>import csp</import>
+  <make>csp.check_crc($include_header, $verbose)</make>
+  <param>
+    <name>Include header</name>
+    <key>include_header</key>
+    <type>bool</type>
+    <option>
+      <name>Yes</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>No</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <param>
+    <name>Verbose</name>
+    <key>verbose</key>
+    <type>bool</type>
+    <option>
+      <name>Yes</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>No</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>message</type>
+  </sink>
+
+  <source>
+    <name>ok</name>
+    <type>message</type>
+    <optional>1</optional>
+  </source>
+  <source>
+    <name>fail</name>
+    <type>message</type>
+    <optional>1</optional>
+  </source>
+</block>
