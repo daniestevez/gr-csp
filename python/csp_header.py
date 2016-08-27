@@ -32,6 +32,8 @@ import struct
 
 class CSP(object):
     def __init__(self, csp_packet):
+        if len(csp_packet) < 4:
+            raise ValueError("Malformed CSP packet (too short)")
         csp = struct.unpack("<I", csp_packet[0:4])[0]
         self.priority = (csp >> 30) & 0x3
         self.source = (csp >> 25) & 0x1f

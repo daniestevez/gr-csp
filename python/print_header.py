@@ -52,5 +52,9 @@ class print_header(gr.basic_block):
             print "[ERROR] Received invalid message type. Expected u8vector"
             return
         packet = array.array("B", pmt.u8vector_elements(msg))
-        print(csp_header.CSP(packet[:4]))
+        try:
+            print(csp_header.CSP(packet[:4]))
+        except ValueError as e:
+            print e
+
 

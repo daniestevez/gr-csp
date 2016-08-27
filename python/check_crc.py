@@ -59,12 +59,21 @@ class check_crc(gr.basic_block):
             print "[ERROR] Received invalid message type. Expected u8vector"
             return
         packet = array.array("B", pmt.u8vector_elements(msg))
-        header = csp_header.CSP(packet[:4])
+        try:
+            header = csp_header.CSP(packet[:4])
+        except ValueError as e:
+            if self.verbose:
+                print e
+            return
         if not header.crc:
             if self.verbose:
                 print "CRC not used"
             self.message_port_pub(pmt.intern('ok'), msg_pmt)
         else:
+            if len(packet) < 8: # bytes CSP header, 4 bytes CRC-32C
+                if self.verbose:
+                    print "Malformed CSP packet (too short)"
+                return
             crc = crc32c.crc(packet[:-4] if self.include_header else packet[4:-4])
             packet_crc = struct.unpack(">I", packet[-4:])[0]
             if crc == packet_crc:
