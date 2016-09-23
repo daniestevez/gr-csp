@@ -33,4 +33,5 @@ except ImportError:
 # import any pure python here
 from print_header import print_header
 from check_crc import check_crc
+from swap_crc import swap_crc
 #

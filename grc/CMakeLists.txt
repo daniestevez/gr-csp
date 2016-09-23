@@ -19,5 +19,6 @@
 
 install(FILES
     csp_print_header.xml
-    csp_check_crc.xml DESTINATION share/gnuradio/grc/blocks
+    csp_check_crc.xml
+    csp_swap_crc.xml DESTINATION share/gnuradio/grc/blocks
 )
