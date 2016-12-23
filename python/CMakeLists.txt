@@ -35,7 +35,9 @@ GR_PYTHON_INSTALL(
     print_header.py
     crc32c.py
     check_crc.py
-    swap_crc.py DESTINATION ${GR_PYTHON_DIR}/csp
+    swap_crc.py
+    swap_header.py
+    DESTINATION ${GR_PYTHON_DIR}/csp
 )
 
 ########################################################################
