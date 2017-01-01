@@ -4,7 +4,7 @@
   <key>csp_check_crc</key>
   <category>csp</category>
   <import>import csp</import>
-  <make>csp.check_crc($include_header, $verbose)</make>
+  <make>csp.check_crc($include_header, $verbose, $force)</make>
   <param>
     <name>Include header</name>
     <key>include_header</key>
@@ -22,6 +22,21 @@
   <param>
     <name>Verbose</name>
     <key>verbose</key>
+    <type>bool</type>
+    <option>
+      <name>Yes</name>
+      <key>True</key>
+    </option>
+    <option>
+      <name>No</name>
+      <key>False</key>
+    </option>
+  </param>
+
+  <param>
+    <name>Force</name>
+    <key>force</key>
+    <value>False</value>
     <type>bool</type>
     <option>
       <name>Yes</name>

@@ -39,7 +39,7 @@ class check_crc(gr.basic_block):
     """
     docstring for block check_crc
     """
-    def __init__(self, include_header, verbose):
+    def __init__(self, include_header, verbose, force=False):
         gr.basic_block.__init__(self,
             name="check_crc",
             in_sig=[],
@@ -47,6 +47,7 @@ class check_crc(gr.basic_block):
 
         self.include_header = include_header
         self.verbose = verbose
+        self.force = force
         
         self.message_port_register_in(pmt.intern('in'))
         self.set_msg_handler(pmt.intern('in'), self.handle_msg)
@@ -65,7 +66,7 @@ class check_crc(gr.basic_block):
             if self.verbose:
                 print e
             return
-        if not header.crc:
+        if not self.force and not header.crc:
             if self.verbose:
                 print "CRC not used"
             self.message_port_pub(pmt.intern('ok'), msg_pmt)
